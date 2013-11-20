@@ -25,7 +25,9 @@ import (
       defer resp.Body.Close()
       contents, _ := ioutil.ReadAll(resp.Body)
 
-      c.Header().Set("Content-Type", "text/calendar")
+      // This is needed for Google Calendar
+      c.Header().Set("Content-Type", "text/calendar; charset=utf-8")
+
       io.WriteString(c, string(contents))
     }
 
