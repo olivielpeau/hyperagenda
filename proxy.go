@@ -14,7 +14,11 @@ import (
 
     log.Print(req.URL.RequestURI())
 
-    if !(strings.HasPrefix(req.URL.RequestURI(), "/ebauche/Telechargements/ical")) {
+    if (req.URL.RequestURI() == "/") {
+
+      http.ServeFile(c, req, "./index.html")
+
+    } else if !(strings.HasPrefix(req.URL.RequestURI(), "/ebauche/Telechargements/ical")) {
 
       http.Error(c, "Tu veux du pain ?", 403)
 
