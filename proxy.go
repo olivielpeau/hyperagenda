@@ -18,7 +18,7 @@ func myHandler(c http.ResponseWriter, req *http.Request) {
 
     http.ServeFile(c, req, "./index.html")
 
-  } else if !(strings.HasPrefix(req.URL.RequestURI(), "/ebauche/Telechargements/ical")) {
+  } else if !(strings.HasPrefix(req.URL.RequestURI(), "/2015/Telechargements/ical")) {
 
     http.Error(c, "Tu veux du pain ?", 403)
 
